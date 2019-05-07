@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}{{product.title}} | {% endblock title %}
+{% block content %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb my-0">
+    <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+    <li class="breadcrumb-item"><a href="/products">Books</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{product.title}}</li>
+  </ol>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <h1 class="display-4 my-5 mx-auto pageHeader">
+      Book Details
+    </h1>
+  </div>
+  <div class="row">
+    <div class="col-md-4 product_thumb">
+      <div class="shadow mx-auto">
+        <img class="w-100" src="{{ product.photo.url }}" alt="" />
+      </div>
+    </div>
+    <div class="col-md-4 product_span">
+      <span class="linespan d-md-block d-none"></span>
+      <span class="linespan d-md-block d-none"></span>
+      <span class="linespan d-md-block d-none"></span>
+      <div class="container-fluid product_info_container text-left pl-5">
+        <p>eB t <span>{{ product.title }}</span></p>
+        <p>†jLK t <span>{{ product.author }}</span></p>
+        <p>cÖKvkbv t <span>{{ product.publisher }}</span></p>
+        <p>aiY t <span>{{ product.category }}</span></p>
+        <p>mvj t {{ product.publish_year }}</p>
+        <p>KZevi †Kbv t {{ product.sold_count }}</p>
+        <p>KZ ¸†jv Av‡Q t {{ product.batch_unit }}</p>
+        <p>wiwfD t</p>
+      </div>
+    </div>
+    <div class="col-md-4 text-center">
+      <div class="ellipse my-2 text-center mx-auto">
+        <h2 class="display-3 pricetag">
+          {% if product.sold_count == 0 %}
+          {{ product.init_price }}
+          {% else %}
+          {{ product.current_price }}
+          {% endif %}/=</h2>
+      </div>
+      <a href="{% url 'order' product.id %}" class="buy_button btn btn-lg px-5 position-relative my-3">
+        BUY
+      </a>
+    </div>
+  </div>
+</div>
+<hr class="mx-auto product_hr" />
+<div class="container">
+  <div class="row">
+    <h3 class="specsHeading w-100"><u>Details and Specifications</u></h3>
+    <p class="paragraph text-left">
+      {{ product.details }}
+    </p>
+  </div>
+</div>
+{% endblock content %}

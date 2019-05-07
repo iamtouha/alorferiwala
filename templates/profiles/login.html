@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+Login |
+{% endblock title %}
+{% block content %}
+<div class="container mt-4" style="font-family:Arial, Helvetica, sans-serif">
+    <div class="row">
+        <h1 class="mx-auto">Log In</h1>
+    </div>
+    {% include "partials/_alerts.html" %}
+    <div class="row justify-content-center">
+        <div class="col-sm-6">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <button type="submit" class="btn btn-info">Log In</button>
+            </form>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-6">
+            <a href="{% url 'register' %}" class="float-left mt-1">don't have an account?</a>
+        </div>
+    </div>
+    <div class="row">
+    </div>
+</div>
+{% endblock content %}

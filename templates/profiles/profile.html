@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}
+User Dashboard |
+{% endblock title %}
+
+{% block content %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb my-0">
+        <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{user.first_name}}</li>
+    </ol>
+</nav>
+<div class="container profile_container">
+    <h1 class="display-4 my-5">CUSTOMER DASHBOARD</h1>
+    <div class="row">
+        <div class="col-md-4 text-center">
+            {% if profile.profile_img %}
+            <img class="w-100" src="{{ profile.profile_img.url }}" alt="">
+            {% else %}
+            <img class="w-100" src="https://via.placeholder.com/120x160" alt="">
+            {% endif %}
+        </div>
+        <div class="col-md-8">
+            <span class="d-none d-md-block"></span>
+            <div class="container-fluid text-left pl-5">
+                <p>Name: <b>{{user.first_name}} {{ user.last_name }} </b></p>
+                <p>Username: <b>{{user.username }} </b></p>
+                <p>Customer ID: <b>{{user.id}} </b></p>
+                <p>Phone No.: <b>{{profile.phone}}</b></p>
+                <p>Email: <b>{{user.email}}</b></p>
+                <p>Address: <b>{{profile.address}}</b></p>
+            </div>
+        </div>
+    </div>
+    <hr class="my-5">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Brought on</th>
+                <th scope="col">Buying Price</th>
+                <th scope="col">Selling Price</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>25-7-18</td>
+                <td>200</td>
+                <td>160</td>
+                <td><button class="btn-sm btn-success">SELL</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

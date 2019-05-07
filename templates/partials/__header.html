@@ -1,0 +1,51 @@
+{% load static %}
+<header class="w-100 banner">
+  <div class="top">
+    <div class="row">
+      <ul class="iconList list-group list-group-horizontal mt-2 mb-0 p-0 mr-3 ml-auto">
+        {% if request.user.is_superuser %}
+        <li class="list-group-item">
+          <a href="{% url 'admin:index' %}" target="_blank">
+            <i class="fas fa-tachometer-alt"></i>
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="{% url 'add_product' %}" target="_blank">
+            <i class="fas fa-plus"></i>
+          </a>
+        </li>
+        {% endif %}
+        {% if request.user.is_authenticated %}
+        <li class="list-group-item">
+          <a href="{% url 'profile' %}">
+            <i class="fas fa-user-circle"></i>
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="#"><i class="fas fa-shopping-cart"></i></a>
+        </li>
+        <li class="list-group-item">
+          <a href="{% url 'logOut' %}"><i class="fas fa-sign-out-alt"></i></a>
+        </li>
+        {% else %}
+        <li class="list-group-item">
+          <a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i></a>
+        </li>
+        <li class="list-group-item">
+          <a href="{% url 'register' %}"><i class="fas fa-user-plus"></i></a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+
+  <div class="row justify-content-center px-3 pt-5 mt-1">
+    <!--  <div class="col-sm-2 pl-5 justify-content-center">
+       <img src="{% static 'img/logo.png' %}" alt="" class="d-block w-100 headerImg" />
+    </div>-->
+    <div class="col-sm-8 text-center">
+      <h1 class="display-4">mnR myjf ¯^í gy‡j¨, wk¶vi Av‡jv N‡i N‡i</h1>
+    </div>
+  </div>
+  <img src="{% static 'img/logo.png' %}" alt="" class="headerImg d-none d-lg-block mx-auto" />
+</header>

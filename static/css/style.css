@@ -1,0 +1,363 @@
+@font-face {
+    font-family: mashrafeBangla;
+    src: url("../Mashrafe_Bangla.ttf");
+}
+
+@font-face {
+    font-family: agencyFb;
+    src: url("../AGENCYB.TTF");
+}
+
+body {
+    font-family: "mashrafeBangla";
+    background: url("../img/background_web.svg") no-repeat;
+    background-size: cover;
+    position: unset;
+}
+
+.marginBottom {
+    margin-bottom: 50px;
+}
+
+.banner {
+    background-color: #29304a;
+    overflow: hidden;
+}
+
+.top {
+    background: #29304a;
+    padding: 0;
+    width: 100%;
+    position: fixed;
+    right: 0px;
+    z-index: 99;
+}
+
+.iconList li {
+    padding: 0 20px;
+    border: 0px;
+    font-size: 28px;
+    background: rgba(0, 0, 0, 0);
+}
+
+.iconList a {
+    color: #ffbe2a;
+    text-decoration: none;
+}
+
+.headerImg {
+    max-width: 200px;
+}
+
+header h1 {
+    color: #ffbe2a;
+    font-family: "mashrafeBangla";
+}
+
+nav.navbar {
+    padding: 0px !important;
+}
+
+#nav {
+    height: 50px;
+    position: relative;
+    font-family: "mashrafeBangla";
+    background-color: #ffbe2a;
+    box-shadow: 0px 0px 3px 0px #000;
+    color: #fff;
+    z-index: 98;
+}
+
+.fixed {
+    position: fixed !important;
+    top: 50px;
+    width: 100%;
+
+}
+
+.navbar-toggler {
+    color: #fff;
+}
+
+.navbar-nav {
+    width: 100%;
+}
+
+@media (max-width: 993px) {
+    .navbar {
+        background-color: #ffbe2a;
+    }
+    .nav-item {
+        margin: 5px 0px;
+    }
+}
+
+@media (min-width: 994px) {
+    .navbar-nav {
+        justify-content: space-between;
+    }
+
+    .nav-item {
+        padding-top: 5px;
+        height: 52px;
+        text-align: center;
+        border-right: solid 3px #29304a;
+    }
+
+    .nav-item:last-of-type {
+        border: 0px;
+    }
+}
+
+
+#nav .form-control {
+    position: relative;
+    font-family: "Arial", Helvetica, sans-serif;
+    min-width: 200px;
+}
+
+#nav .btn {
+    position: absolute;
+}
+
+nav.navbar i {
+    color: #ffbe2a;
+    font-size: 1.6rem;
+}
+
+.nav-item a {
+    text-align: center;
+}
+
+.nav-item {
+    justify-content: center;
+    text-align: center;
+}
+
+#nav a {
+    font-weight: bold;
+    font-size: 25px;
+    color: #2c3e50;
+}
+
+#nav a:active {
+    color: #6e6e6e;
+}
+
+#nav a:hover {
+    cursor: pointer;
+}
+
+footer {
+    color: #FFBE2A;
+    font-family: "Arial", Helvetica, sans-serif;
+    background: #29304A;
+}
+
+cite {
+    color: #FFBE2A;
+}
+
+footer .container-fluid {
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+
+/*home*/
+
+.banner_wrapper {
+    width: 100%;
+    background: #29304A;
+    height: auto;
+    justify-content: center;
+}
+
+.display {
+    color: #D8DDE8;
+    font-size: 36px;
+    font-family: "mashrafeBangla";
+}
+
+.banner_wrapper button {
+    background: #FFBE2A;
+    width: 100%;
+    position: relative;
+
+}
+
+.banner_wrapper h3 {
+    font-family: agencyFb;
+    font-weight: bold;
+    font-size: 2.55rem;
+    color: #D8DDE8;
+    text-shadow: 3px 3px 3px #000;
+}
+
+.buttonContainer button {
+    background: #FFBE2A;
+    border: 1px solid rgb(163, 98, 1);
+    border-radius: 0px;
+    position: relative;
+    color: #29304A;
+    font-family: "Arial", Helvetica, sans-serif;
+    font-size: 24px;
+    margin: 10px;
+    font-weight: bolder;
+    text-shadow: 2px 2px 2px #000;
+}
+
+.displayRow {
+    background: rgba(233, 199, 120, .4);
+}
+
+.displayRow P {
+    font-size: 16px;
+    color: #29304A;
+    margin: 0px;
+}
+
+.displayRow a {
+    text-decoration: none;
+}
+
+
+/*product*/
+
+.breadcrumb {
+    font-family: "Arial", Helvetica, sans-serif;
+    background: #29304A;
+    border-radius: 0;
+}
+
+.breadcrumb a {
+    color: #FFBE2A !important;
+}
+
+.breadcrumb-item.active {
+    color: #fff;
+
+}
+
+.pageHeader {
+    color: #29304A;
+    font-weight: bolder;
+    font-family: "Impact", Helvetica, sans-serif;
+}
+
+.shadow {
+    background: #FFBE2A;
+    border: 1px solid rgb(243, 113, 7);
+    max-width: 180px;
+    max-height: 240px;
+    top: 50%;
+    transform: translate(-10px, -10px);
+}
+
+.ellipse {
+    width: 220px;
+    height: 140px;
+    border-radius: 50%;
+    border: 15px solid rgb(112, 173, 71);
+    transform: rotate(-16deg)
+}
+
+.pricetag {
+    top: 50%;
+    transform: translate(7%, -50%);
+    position: absolute;
+}
+
+.buy_button {
+    background: #FFBE2A;
+    border: 1px solid rgb(243, 113, 7);
+    font-family: "agencyFb", Arial;
+    font-size: 34px;
+    color: #D8DDE8;
+    text-shadow: 1px 1px 3px #000;
+    border-radius: 10px;
+}
+
+.ellipse h2 {
+    text-shadow: -1px -1px rgb(255, 191, 43),
+        1px -1px rgb(255, 191, 43),
+        -1px 1px rgb(255, 191, 43),
+        1px 1px rgb(255, 191, 43);
+}
+
+.linespan {
+    width: 3px;
+    height: 100%;
+    margin: 0px 5px;
+    background: #FFBE2A;
+    float: left;
+}
+.product_info_container span{
+    font-family: 'Arial', Helvetica, sans-serif;
+    font-size: 20px;
+}
+.product_thumb img {
+    transform: translate(10px, 10px);
+}
+
+.product_info_container p {
+    font-size: 24px;
+    font-family: "mashrafeBangla";
+    margin: 0;
+}
+
+.product_hr {
+    height: 2px;
+    color: #FFBE2A;
+    background-color: #FFBE2A;
+    width: 90%;
+}
+
+.specsHeading {
+    font-family: "agencyFb", Arial;
+    color: #29304A;
+}
+
+.paragraph {
+    font-family: "Arial", Helvetica, sans-serif;
+    font-size: 22px;
+}
+
+
+
+/*profile*/
+
+.profile_container {
+    font-family: 'Arial', Helvetica, sans-serif;
+    position: relative;
+}
+
+.profile_container h1.display-4 {
+    text-align: center;
+    font-family: 'Impact';
+    font-weight: bolder;
+    color: #29304A;
+}
+
+.profile_container img {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.profile_container span {
+    width: 3px;
+    height: 100%;
+    margin: 0px 5px;
+    background: #FFBE2A;
+    float: left;
+}
+
+.profile_container hr {
+    height: 2px;
+    color: #FFBE2A;
+    background-color: #FFBE2A;
+}
+
+.profile_container button {
+    font-family: 'agencyFb';
+}
