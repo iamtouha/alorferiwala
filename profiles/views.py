@@ -22,8 +22,8 @@ def user_profile(request, user_id):
     user = get_object_or_404(User, pk=user_id)
     profile = UserProfile.objects.get(user__id=user_id)
     context = {
-        'name' : user.first_name + ' ' + user.last_name,
-        'phone' : '+880' + str(profile.phone),
+        'name' : f"{user.first_name} {user.last_name}",
+        'phone' : f"+880{profile.phone}",
         'address' : profile.address,
         'photo' : profile.profile_img,
     }
@@ -35,6 +35,7 @@ def register(request):
         if form.is_valid():
             full_name = form.cleaned_data['full_name']
             name = full_name.split(" ", 1)
+            first_name, last_name = name
             username = form.cleaned_data['username']
             address = form.cleaned_data['address']
             phone_no = form.cleaned_data['phone_no']
@@ -46,34 +47,43 @@ def register(request):
             password = form.cleaned_data['password']
             repeat_password = form.cleaned_data['repeat_password']
 
-            if password == repeat_password:
-                if User.objects.filter(username = username).exists():
-                    messages.error(request, "Username is taken")
-                    return redirect('register')
-                else:
-                    if User.objects.filter(email = email).exists():
-                        messages.error(request, "Email already exists")
-                        return redirect('register')
-                    else:
-                        user = User.objects.create_user(
-                            username = username, 
-                            password = password,
-                            first_name = name[0], 
-                            last_name = name[1],
-                            email = email)
-                        user.save()
-                        profile = UserProfile(
-                            user = user,
-                            address  = address,
-                            phone = phone_no,
-                            profile_img = photo
-                        )
-                        profile.save()
-                        messages.success(request, 'You are now registered and can login')
-                        return redirect('login')
-            else:
+            if password != repeat_password:
                 messages.error(request, "passwords do not match")
                 return redirect('register')
+
+            else:
+                user_obj = User.objects
+                if user_obj.filter(username = username).exists():
+                    messages.error(request, "Username is taken")
+                    return redirect('register')
+
+                elif user_obj.filter(email = email).exists():
+                    messages.error(request, "Email already exists")
+                    return redirect('register')
+                
+                elif UserProfile.objects.filter(phone = phone_no).exists():
+                    messages.error(request, "Phone No. already exists")
+                    return redirect('register')
+
+                else:
+                    user = user_obj.create_user(
+                        username = username, 
+                        password = password,
+                        first_name = first_name, 
+                        last_name = last_name,
+                        email = email
+                        )
+                    user.save()
+                    profile = UserProfile(
+                        user = user,
+                        address  = address,
+                        phone = phone_no,
+                        profile_img = photo
+                    )
+                    profile.save()
+                    messages.success(request, 'You are now registered and can login')
+                    return redirect('login')
+                
         else:
             return redirect('register')
     else:        
@@ -102,6 +112,7 @@ def login(request):
                     return redirect('login')
                     messages.error(request, "Invalid Credentials")
             else:
+                messages.error(request, "Invalid Form Submission")
                 return redirect('login')
         else:
             context = {

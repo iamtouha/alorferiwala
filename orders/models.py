@@ -8,7 +8,8 @@ class Order(models.Model):
     ordered_by = models.ForeignKey(User, on_delete=models.DO_NOTHING, related_name='%(class)s_buyer')
     owned_by = models.ForeignKey(User, on_delete=models.DO_NOTHING, blank=True, null=True, related_name='%(class)s_owner')
     price = models.IntegerField()
-    is_confirmed = models.BooleanField(default=False, blank=True)
+    is_confirmed_by_owner = models.BooleanField(default=False, blank=True)
+    is_confirmed_by_customer = models.BooleanField(default=False, blank=True)
     time = models.DateTimeField(blank=True, default=datetime.now)
     def __str__(self):
-        return self.product.title + '_' + str(self.product.id)
+        return f"{self.product.title}_{self.product.id}"
