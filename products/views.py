@@ -2,7 +2,6 @@ from django.shortcuts import get_object_or_404, render, redirect
 from .models import Product
 from django.contrib import messages
 from .forms import ProductInputForm
-from django.core.mail import send_mail
 from .categories import categories
 
 
@@ -52,7 +51,8 @@ def add_product(request):
                         is_award_winner = is_award_winner,
                     )
                     product.save()
-                return redirect('add_product')
+                return redirect('add_product') 
+                messages.success(request, 'product added successfully!')
             else:
                 return redirect('add_product')
         else:

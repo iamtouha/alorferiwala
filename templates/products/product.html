@@ -33,6 +33,14 @@
         <p>mvj t {{ product.publish_year }}</p>
         <p>KZevi †Kbv t {{ product.sold_count }}</p>
         <p>KZ ¸†jv Av‡Q t {{ product.batch_unit }}</p>
+        <p>c„ôv t {{ product.pages }}</p>
+
+        {% if product.sold_count == 0 %}
+          <p>g~j¨ t {{product.init_price}} UvKv</p>
+        {% else %}
+          <p>g~j¨ t {{ product.current_price }} UvKv (gyw`ªZ g~j¨ t {{ product.init_price }} UvKv)</p>
+        {% endif %}
+
         <p>wiwfD t</p>
       </div>
     </div>

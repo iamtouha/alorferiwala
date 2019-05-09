@@ -12,6 +12,7 @@ class Product(models.Model):
     current_price = models.IntegerField(default=0)
     photo = models.ImageField(upload_to='photos/%Y/%m/%d', max_length=255)
     batch_unit = models.IntegerField(default=0)
+    pages = models.IntegerField()
     publish_year = models.CharField(max_length=8)
     details = models.TextField(max_length=1024)
     tags = models.CharField(max_length=255)

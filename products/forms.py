@@ -8,6 +8,7 @@ class ProductInputForm(forms.Form):
     price = forms.IntegerField()
     photo = forms.ImageField()
     units = forms.IntegerField()
+    pages = forms.IntegerField()
     publish_year = forms.CharField(max_length=4)
     details = forms.CharField(widget = forms.Textarea)
     tags = forms.CharField()
