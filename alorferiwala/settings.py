@@ -1,16 +1,10 @@
 
 import os
 
+from .local_settings import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
-SECRET_KEY = 'eey283#3p(-$s!9vk0j8w^9u@a*@w_jr(^7ar5d8ta60x5^g3g'
-
-ALLOWED_HOSTS = ['alorferiwala.herokuapp.com',]
-
-DEBUG = False
 
 # Application definition
 
@@ -61,14 +55,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'alorferiwala.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'NAME': 'alorferiwala',
-        'ENGINE': 'django.db.backends.postgresql',
-        'USER': 'postgres_user',
-        'PASSWORD': 's3krit'
-    },
-}
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Password validation
 
@@ -121,8 +108,3 @@ from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
-
-# Heroku: Update database configuration from $DATABASE_URL.
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
