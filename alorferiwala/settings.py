@@ -5,6 +5,13 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+
+SECRET_KEY = 'eey283#3p(-$s!9vk0j8w^9u@a*@w_jr(^7ar5d8ta60x5^g3g'
+
+ALLOWED_HOSTS = []
+
+DEBUG = True
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -58,7 +65,18 @@ WSGI_APPLICATION = 'alorferiwala.wsgi.application'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'alor_feriwala',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'OPTIONS':{
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
+    }
+}
 
 # Password validation
 
@@ -76,7 +94,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 from django.utils.translation import gettext_lazy as _
@@ -113,7 +130,7 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
 
-try:
-    from .local_settings import *
-except ImportError:
-    pass
+# Heroku: Update database configuration from $DATABASE_URL.
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
