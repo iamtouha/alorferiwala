@@ -162,7 +162,9 @@ footer .container-fluid {
     color: #fff;
     border: 2px solid #fff;
 }
-
+.social-links{
+    font-size: 2.7rem;
+}
 
 /*home*/
 

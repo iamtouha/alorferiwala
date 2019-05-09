@@ -4,7 +4,9 @@ from django.contrib import messages
 from .forms import ProductInputForm
 from .categories import categories
 
-
+def index(request):
+    return render(request, 'products/products.html')
+    
 def product(request, product_id):
     product = get_object_or_404(Product, pk = product_id)
     for category in categories:
@@ -29,6 +31,7 @@ def add_product(request):
                 price = form.cleaned_data['price']
                 photo = request.FILES['photo']
                 units = form.cleaned_data['units']
+                pages = form.cleaned_data['pages']
                 publish_year = form.cleaned_data['publish_year']
                 details = form.cleaned_data['details']
                 tags = form.cleaned_data['tags']
@@ -43,6 +46,7 @@ def add_product(request):
                         category=category,
                         init_price=price,
                         photo = photo,
+                        pages=pages,
                         publish_year = publish_year,
                         details = details,
                         tags = tags,

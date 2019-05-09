@@ -15,7 +15,7 @@
     <h1 class="display-4 my-5">USER DETAILS</h1>
     <div class="row">
         <div class="col-md-4 text-center">
-            {% if photo.url %}
+            {% if photo.url in photo %}
             <img class="w-100" src="{{ photo.url }}" alt="">
             {% else %}
             <img class="w-100" src="https://via.placeholder.com/120x160" alt="">

@@ -31,7 +31,7 @@ def user_profile(request, user_id):
     user = get_object_or_404(User, pk=user_id)
     profile = UserProfile.objects.get(user__id=user_id)
     if not profile.profile_img:
-        profile.profile_img = 'https://via.placeholder.com/150x120'
+        profile.profile_img = None
     context = {
         'name' : f"{user.first_name} {user.last_name}",
         'phone' : f"+880{profile.phone}",
