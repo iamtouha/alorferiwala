@@ -5,7 +5,10 @@ from products.categories import categories
 def index(request):
     products = []
     for category in categories:
-        items = Product.objects.order_by('-updated_at').filter(status = 'OS', category=category[0]).all().exclude(current_owner = request.user)[:6]
+        if request.user.is_authenticated:
+            items = Product.objects.order_by('-updated_at').filter(status = 'OS', category=category[0]).all().exclude(current_owner = request.user)[:6]
+        else:
+            items = Product.objects.order_by('-updated_at').filter(status = 'OS', category=category[0])[:6]
         i = 0
         members = []
         for item in items:
