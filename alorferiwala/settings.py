@@ -6,11 +6,12 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-SECRET_KEY = 'eey283#3p(-$s!9vk0j8w^9u@a*@w_jr(^7ar5d8ta60x5^g3g'
+#SECRET_KEY = 'eey283#3p(-$s!9vk0j8w^9u@a*@w_jr(^7ar5d8ta60x5^g3g'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'eey283#3p(-$s!9vk0j8w^9u@a*@w_jr(^7ar5d8ta60x5^g3g')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['alorferiwala.herokuapp.com']
 
-DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 # Application definition
 
