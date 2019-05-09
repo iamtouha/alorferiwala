@@ -61,10 +61,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'alorferiwala.wsgi.application'
 
-#whitenoise
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 DATABASES = {
     'default': {
         'NAME': 'alorferiwala',
