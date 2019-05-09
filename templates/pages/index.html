@@ -10,9 +10,9 @@
         </h1>
       </div>
       <div class="col-md-3">
-        <button class="btn btn-lg py-0">
+        <a href="{% url 'profile' %}" class="btn btn-lg py-0">
           <h3 class="m-0">SELL</h3>
-        </button>
+        </a>
       </div>
     </div>
   </div>
@@ -20,13 +20,13 @@
 <div class="container buttonContainer">
   <div class="row text-center">
     <div class="col-sm-4">
-      <button class="btn btn-lg">CATEGORIES</button>
+      <a href="{% url 'products' %}" class="btn btn-lg">CATEGORIES</a>
     </div>
     <div class="col-sm-4">
-      <button class="btn btn-lg">AUTHORS</button>
+      <a href="{% url 'products' %}" class="btn btn-lg">AUTHORS</a>
     </div>
     <div class="col-sm-4">
-      <button class="btn btn-lg">PUBLISHERS</button>
+      <a href="{% url 'products' %}" class="btn btn-lg">PUBLISHERS</a>
     </div>
   </div>
 </div>

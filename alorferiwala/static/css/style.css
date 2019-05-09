@@ -181,11 +181,12 @@ footer .container-fluid {
     font-family: "mashrafeBangla";
 }
 
-.banner_wrapper button {
+.banner_wrapper a {
     background: #FFBE2A;
     width: 100%;
+    text-decoration: none;
     position: relative;
-
+    
 }
 
 .banner_wrapper h3 {
@@ -196,9 +197,10 @@ footer .container-fluid {
     text-shadow: 3px 3px 3px #000;
 }
 
-.buttonContainer button {
+.buttonContainer a {
     background: #FFBE2A;
     border: 1px solid rgb(163, 98, 1);
+    text-decoration: none;
     border-radius: 0px;
     position: relative;
     color: #29304A;

@@ -6,7 +6,7 @@ from .categories import categories
 
 def index(request):
     return render(request, 'products/products.html')
-    
+
 def product(request, product_id):
     product = get_object_or_404(Product, pk = product_id)
     for category in categories:
@@ -18,6 +18,9 @@ def product(request, product_id):
         'product': product,
     }
     return render(request, 'products/product.html', context)
+
+def search(request):
+    return render(request, 'products/search.html')
 
 def add_product(request):
     if request.user.is_superuser:
