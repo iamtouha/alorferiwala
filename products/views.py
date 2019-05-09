@@ -51,9 +51,10 @@ def add_product(request):
                         is_award_winner = is_award_winner,
                     )
                     product.save()
-                return redirect('add_product') 
                 messages.success(request, 'product added successfully!')
+                return redirect('add_product') 
             else:
+                messages.error(request, 'Something went wrong!')
                 return redirect('add_product')
         else:
             context = {
@@ -61,4 +62,4 @@ def add_product(request):
             }
             return render(request, 'products/add.html', context)
     else:
-        return redirect('product')
+        return redirect('index')
