@@ -11,8 +11,7 @@ def index(request):
         for item in items:
             if i==0:
                 members.append(item)
-            else:
-                if item.title != items[i-1].title:
+            elif (item.title != items[i-1].title) or (item.sold_count != items[i-1].sold_count):
                     members.append(item)
             i += 1
         if members:

@@ -1,6 +1,6 @@
 {% if messages %}
   {% for message in messages %}
-    <div id="message" class="container">
+    <div id="message" class="container" style="font-family:'Arial', Helvetica, sans-serif">
         <div class="alert alert-dismissable alert-{{ message.tags }} text-center" role="alert">
             <button type="button" data-dismiss="alert" class="close"><span aria-hidden="true">&times;</span></button>
             {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}

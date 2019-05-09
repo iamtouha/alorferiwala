@@ -12,7 +12,7 @@ body {
     font-family: "mashrafeBangla";
     background: url("../img/background_web.svg") no-repeat;
     background-size: cover;
-    position: unset;
+    width: 100%;
 }
 
 .marginBottom {

@@ -1,5 +1,8 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from .models import UserProfile
+from products.models import Product
+from orders.models import Order
+from orders.views import fraction
 from .forms import RegisterForm, LoginForm
 from django.contrib.auth.password_validation import validate_password
 from django.contrib.auth import authenticate, logout
@@ -11,8 +14,14 @@ from django.contrib import messages, auth
 def index(request):
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user_id=request.user.id)
+        owned_books = Product.objects.order_by('-updated_at').filter(current_owner = request.user )
+        ordered_books = Order.objects.order_by('-time').filter(ordered_by = request.user, is_confirmed=False )
+        for books in owned_books:
+            books.buying_price = int(books.init_price * fraction ** (books.sold_count - 1))
         context = {
-            'profile': profile
+            'profile': profile,
+            'owned_books' : owned_books,
+            'ordered_books' : ordered_books,
         }
         return render(request, 'profiles/profile.html', context)
     else:
@@ -21,6 +30,8 @@ def index(request):
 def user_profile(request, user_id):
     user = get_object_or_404(User, pk=user_id)
     profile = UserProfile.objects.get(user__id=user_id)
+    if not profile.profile_img:
+        profile.profile_img = 'https://via.placeholder.com/150x120'
     context = {
         'name' : f"{user.first_name} {user.last_name}",
         'phone' : f"+880{profile.phone}",
@@ -51,6 +62,9 @@ def register(request):
                 messages.error(request, "passwords do not match")
                 return redirect('register')
 
+            elif len(password)<8:
+                messages.error(request, "password must be at least 8 characters")
+                return redirect('register')
             else:
                 user_obj = User.objects
                 if user_obj.filter(username = username).exists():

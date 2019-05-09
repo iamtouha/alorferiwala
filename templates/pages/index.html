@@ -2,68 +2,62 @@
 {% block title %}Home | {% endblock title %}
 {% block content %}
 <div class="banner_wrapper mt-5 mb-4">
-    <div class="container py-2">
-      <div class="row">
-        <div class="col-md-9 text-center">
-          <h1 class="display my-1">
-            Avcbvi eBwU cov †kl n‡q †M‡j wewµ K‡i w`‡Z cv‡ib GLbB!!
-          </h1>
-        </div>
-        <div class="col-md-3">
-          <button class="btn btn-lg py-0">
-            <h3 class="m-0">SELL</h3>
-          </button>
-        </div>
+  <div class="container py-2">
+    <div class="row">
+      <div class="col-md-9 text-center">
+        <h1 class="display my-1">
+          Avcbvi eBwU cov †kl n‡q †M‡j wewµ K‡i w`‡Z cv‡ib GLbB!!
+        </h1>
+      </div>
+      <div class="col-md-3">
+        <button class="btn btn-lg py-0">
+          <h3 class="m-0">SELL</h3>
+        </button>
       </div>
     </div>
   </div>
-  <div class="container buttonContainer">
-    <div class="row text-center">
-      <div class="col-sm-4">
-        <button class="btn btn-lg">CATEGORIES</button>
-      </div>
-      <div class="col-sm-4">
-        <button class="btn btn-lg">AUTHORS</button>
-      </div>
-      <div class="col-sm-4">
-        <button class="btn btn-lg">PUBLISHERS</button>
-      </div>
+</div>
+<div class="container buttonContainer">
+  <div class="row text-center">
+    <div class="col-sm-4">
+      <button class="btn btn-lg">CATEGORIES</button>
+    </div>
+    <div class="col-sm-4">
+      <button class="btn btn-lg">AUTHORS</button>
+    </div>
+    <div class="col-sm-4">
+      <button class="btn btn-lg">PUBLISHERS</button>
     </div>
   </div>
-  <div class="w-100 my-5">
-    <div class="container">
-      {% for subproduct in products %}
-        <div class="row mt-5">
-        <p>
-          {{ subproduct.title }} 
-        </p>
+</div>
+<div class="w-100 my-5">
+  <div class="container">
+    {% for subproduct in products %}
+    <div class="row mt-5">
+      <p>
+        {{ subproduct.title }}
+      </p>
+    </div>
+    <div class="row py-3 displayRow">
+      {% for product in subproduct.items %}
+      <div class="col-lg-2 col-md-3 col-sm-4 col-6 justify-content-center text-center">
+        <a href="{% url 'product' product.id %}">
+          <img class="container-fluid" src="{{ product.photo.url }}" alt="{{ product.title }}" />
+          <p style="font-family:'Arial'; font-weight:bold;">{{ product.title }}</p>
+          <p style="font-family:'Arial'"> {{ product.author }} </p>
+          <p>`vg:
+            {% if product.sold_count == 0 %}
+            {{ product.init_price }}
+            {% else %}
+            {{ product.current_price }}
+            {% endif %}
+            /=</p>
+          <p>weµxZ: {{ product.sold_count }} evi</p>
+        </a>
       </div>
-        {% for product in subproduct.items %}
-          <div class="row py-3 displayRow">
-          <div
-            class="col-lg-2 col-md-3 col-sm-4 col-6 justify-content-center text-center"
-          >
-            <a href="{% url 'product' product.id %}">
-              <img
-                class="container-fluid"
-                src="{{ product.photo.url }}"
-                alt="{{ product.title }}"
-              />
-              <p style="font-family:'Arial'; font-weight:bold;">{{ product.title }}</p>
-              <p style="font-family:'Arial'"> {{ product.author }} </p>
-              <p>`vg:
-                {% if product.sold_count == 0 %}                
-                  {{ product.init_price }}
-                {% else %}
-                  {{ product.current_price }}
-                {% endif %}  
-               /=</p>
-              <p>weµxZ:  {{ product.sold_count }} evi</p>
-            </a>
-          </div>
-        </div>
-        {% endfor %}
       {% endfor %}
     </div>
+    {% endfor %}
   </div>
+</div>
 {% endblock content %}
