@@ -8,9 +8,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = 'eey283#3p(-$s!9vk0j8w^9u@a*@w_jr(^7ar5d8ta60x5^g3g'
 
-ALLOWED_HOSTS = ['alorferiwala.herokuapp.com']
+ALLOWED_HOSTS = ['https://alorferiwala.herokuapp.com']
 
-DEBUG = False
+DEBUG = True
 
 # Application definition
 
@@ -63,7 +63,7 @@ WSGI_APPLICATION = 'alorferiwala.wsgi.application'
 
 #whitenoise
 
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DATABASES = {
     'default': {
