@@ -55,7 +55,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'alorferiwala.wsgi.application'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Password validation
 
@@ -74,6 +73,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Internationalization
 from django.utils.translation import gettext_lazy as _
 
