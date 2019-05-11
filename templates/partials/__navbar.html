@@ -30,8 +30,15 @@
             <a href="{% url 'products' %}">D”Pwk¶v eB</a>
           </li>
           <hr class="d-block m-0 d-lg-none">
-          <li class="nav-item container-fluid">
-            <a href="{% url 'products' %}">eB wiwfD</a>
+          <li class="nav-item container-fluid dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  eB wiwfD
+                </a>
+                <div style="font-family:Arial, Helvetica, sans-serif; font-size: 1.75rem; font-weight: 200; background: #FFBE2A" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'products' %}">Book Review</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{% url 'products' %}">Podcast</a>
+                  </div>
           </li>
           <hr class="d-block m-0 d-lg-none">
           <li class="nav-item container-fluid">

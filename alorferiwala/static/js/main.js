@@ -15,8 +15,19 @@ function stickyNav() {
 }
 stickyNav()
 window.addEventListener('scroll', stickyNav)
+
 $(document).ready(function(){
     setTimeout(function() {
         $('#message').fadeOut('slow')
-    }, 4000)
+    }, 4000);
+    $('.category-button, .category-list').hover(function(){
+        setTimeout(function() {
+            $('.category-list').css('display','block');
+        }, 100);
+    },
+    function(){
+        setTimeout(function() {
+            $('.category-list').css('display','none');
+        }, 100);
+    } )
 })

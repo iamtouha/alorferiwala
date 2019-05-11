@@ -1,1 +1,0 @@
-web: gunicorn alorferiwala.wsgi --log-file -

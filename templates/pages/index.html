@@ -20,8 +20,66 @@
 <div class="container buttonContainer">
   <div class="row text-center">
     <div class="col-sm-4">
-      <a href="{% url 'products' %}" class="btn btn-lg">CATEGORIES</a>
+      <a href="{% url 'products' %}" class="btn btn-lg category-button">CATEGORIES</a>
     </div>
+    <div class="position-absolute category-list hidden">
+      <div class="container">
+        <div class="row">
+          <p class="lead mx-2 my-2" style="font-family:Arial, Helvetica, sans-serif"><u>Categories</u></p>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <ul class="list-group list-group-flush">
+              {% for category in categories|slice:":10" %}
+              <li class="list-group-item bg-transparent">
+                <a class="text-dark" href="#">
+                  {{ category.1 }}
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          
+    
+          <div class="col-md-3">
+            <ul class="list-group list-group-flush">
+              {% for category in categories|slice:"10:20" %}
+              <li class="list-group-item bg-transparent">
+                <a class="text-dark" href="#">
+                  {{ category.1 }}
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+    
+          <div class="col-md-3">
+            <ul class="list-group list-group-flush">
+              {% for category in categories|slice:"20:30" %}
+              <li class="list-group-item bg-transparent">
+                <a class="text-dark" href="#">
+                  {{ category.1 }}
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <ul class="list-group list-group-flush">
+              {% for category in categories|slice:"30:40" %}
+              <li class="list-group-item bg-transparent">
+                <a class="text-dark" href="#">
+                  {{ category.1 }}
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+    
+        </div>
+      </div>
+    </div>
+
     <div class="col-sm-4">
       <a href="{% url 'products' %}" class="btn btn-lg">AUTHORS</a>
     </div>

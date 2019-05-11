@@ -25,6 +25,7 @@ def index(request):
             products.append(subproducts)
     context = {
         'products' : products,
+        'categories' : categories,
     }
         
     return render(request, 'pages/index.html', context)
