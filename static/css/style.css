@@ -83,6 +83,7 @@ nav.navbar {
     width: 100%;
 }
 
+
 @media (max-width: 993px) {
     .navbar {
         background-color: #ffbe2a;
@@ -197,7 +198,7 @@ footer .container-fluid {
     text-shadow: 3px 3px 3px #000;
 }
 
-.buttonContainer a {
+.buttonContainer a.btn {
     background: #FFBE2A;
     border: 1px solid rgb(163, 98, 1);
     text-decoration: none;
@@ -210,7 +211,15 @@ footer .container-fluid {
     font-weight: bolder;
     text-shadow: 2px 2px 2px #000;
 }
-
+.category-list{
+    background: #FFBE2A;
+    left: 50%;
+    min-width: 65%;
+    transform: translateX(-50%);
+    z-index: 97;
+    transition-duration: 400ms;
+    display: none;
+}
 .displayRow {
     background: rgba(233, 199, 120, .4);
 }

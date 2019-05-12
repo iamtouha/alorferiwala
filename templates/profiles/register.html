@@ -11,10 +11,13 @@ Register |
     </div>
     <div class="row justify-content-center">
         <div class="col-sm-6">
-            <form method="POST" enctype="multipart/form-data">
+            <form name="registerForm" onsubmit="return validateRegisterForm(event)" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form | crispy }}
-                <button type="submit" class="btn btn-info">Sign Up</button>
+                <div class="row">
+                    <p class="my-3 text-danger" id="errorMsg"></p>
+                </div>
+                <input type="submit" class="btn btn-info" value="Sign Up">
             </form>
         </div>
     </div>
